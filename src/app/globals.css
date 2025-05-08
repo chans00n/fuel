@@ -95,22 +95,22 @@
 
 .dark {
   /* Core B&W Palette - Dark Mode */
-  --background: oklch(0 0 0); /* Black */
+  --background: oklch(0.10 0 0); /* Slightly off-black for main background */
   --foreground: oklch(1 0 0); /* White */
 
-  --card: oklch(0 0 0); /* Black */
+  --card: oklch(0.13 0 0); /* Dark gray for cards, a bit lighter than main bg */
   --card-foreground: oklch(1 0 0); /* White */
 
-  --popover: oklch(0 0 0); /* Black */
+  --popover: oklch(0.13 0 0); /* Consistent with cards */
   --popover-foreground: oklch(1 0 0); /* White */
 
   --primary: oklch(1 0 0); /* White */
   --primary-foreground: oklch(0 0 0); /* Black */
 
-  --secondary: oklch(0.05 0 0); /* Very Dark Gray */
+  --secondary: oklch(0.07 0 0); /* Darker gray for secondary sections */
   --secondary-foreground: oklch(1 0 0); /* White */
 
-  --muted: oklch(0.1 0 0); /* Dark Gray */
+  --muted: oklch(0.15 0 0); /* Dark gray, slightly lighter for muted elements */
   --muted-foreground: oklch(0.8 0 0); /* Light Gray (but still whitish) */
 
   --accent: oklch(1 0 0); /* White */
@@ -119,9 +119,9 @@
   --destructive: oklch(1 0 0); /* White (was light red) */
   /* --destructive-foreground: oklch(0 0 0); // Black - if needed */
 
-  --border: oklch(0.15 0 0); /* Dark Gray */
-  --input: oklch(0.15 0 0); /* Dark Gray */
-  --ring: oklch(0.5 0 0); /* Medium Gray */
+  --border: oklch(0.20 0 0); /* Dark Gray, slightly lighter for better visibility */
+  --input: oklch(0.20 0 0); /* Dark Gray, consistent with border */
+  --ring: oklch(0.5 0 0); /* Medium Gray - unchanged for now */
 
   /* Simplified Chart Colors - Dark Mode */
   --chart-1: oklch(0.8 0 0); /* Light Gray */

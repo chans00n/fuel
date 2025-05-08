@@ -163,7 +163,7 @@ export default function Home() {
   return (
     <>
       <Navbar05 
-        siteTitle="FUEL: The Phoenix September Challenge"
+        siteTitle="FUEL: The Phoenix September Campaign"
         logoSrc="/ThePhoenixTMLogoSOLID_RGB.png"
       />
       <main className="flex min-h-screen flex-col items-center ">
@@ -174,7 +174,7 @@ export default function Home() {
           <div className="container mx-auto px-4 md:px-6 max-w-screen-xl">
             <div className="text-center mb-12">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-foreground">
-              FUEL: The Phoenix September Challenge
+              FUEL: The Phoenix September Campaign
               </h1>
             </div>
 
@@ -191,7 +191,7 @@ export default function Home() {
               </div>
 
               <p className="text-lg text-muted-foreground mb-12 leading-relaxed text-center max-w-4xl mx-auto">
-                This proposal outlines the scope, objectives, and service breakdown for the design, conceptualization, and implementation of &quot;FUEL: The Phoenix September Challenge&quot; - a peer-to-peer fundraising campaign aligned with National Recovery Month. With a contract start date of May 15, 2025, this project will prepare for a campaign launch on September 1, 2025.
+                This proposal outlines the scope, objectives, and service breakdown for the design, conceptualization, and implementation of &quot;FUEL: The Phoenix September Campaign&quot; - a peer-to-peer fundraising campaign aligned with National Recovery Month. With a contract start date of May 15, 2025, this project will prepare for a campaign launch on September 1, 2025.
               </p>
 
               {/* Updated Campaign Objectives and Target Audience Section */}
