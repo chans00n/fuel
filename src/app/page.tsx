@@ -227,7 +227,7 @@ export default function Home() {
                       const textColor = iconTextColors[index % iconTextColors.length];
 
                       return (
-                        <Card key={index} className="flex flex-col text-center sm:text-left hover:shadow-lg transition-shadow duration-300">
+                        <Card key={index} className="flex flex-col text-center sm:text-left hover:shadow-lg dark:hover:shadow-[0_10px_15px_-3px_rgba(255,255,255,0.07),_0_4px_6px_-4px_rgba(255,255,255,0.07)] transition-shadow duration-300">
                           <CardHeader className="pt-6">
                             <div className={`mx-auto sm:mx-0 w-fit p-3 rounded-full mb-3 ${bgColor}`}>
                               <objective.icon className={`h-6 w-6 ${textColor}`} />
@@ -277,7 +277,7 @@ export default function Home() {
                       const textColor = audienceIconTextColors[index % audienceIconTextColors.length];
 
                       return (
-                        <Card key={index} className="flex flex-col text-center sm:text-left hover:shadow-lg transition-shadow duration-300">
+                        <Card key={index} className="flex flex-col text-center sm:text-left hover:shadow-lg dark:hover:shadow-[0_10px_15px_-3px_rgba(255,255,255,0.07),_0_4px_6px_-4px_rgba(255,255,255,0.07)] transition-shadow duration-300">
                           <CardHeader className="pt-6">
                             <div className={`mx-auto sm:mx-0 w-fit p-3 rounded-full mb-4 ${bgColor}`}>
                               <audience.icon className={`h-7 w-7 ${textColor}`} />
@@ -448,8 +448,7 @@ export default function Home() {
             {/* Desktop Table View */}
             <div className="overflow-x-auto rounded-lg shadow-md border border-border hidden md:block">
               <Table className="min-w-full">
-                <TableHeader className="bg-muted/50"> {/* Slightly different background for header */}
-                  <TableRow>
+                <TableHeader className="bg-muted/50"><TableRow>
                     <TableHead className="px-6 py-4 text-left text-sm font-semibold text-foreground w-[30%]">Features</TableHead>
                     <TableHead className="px-6 py-4 text-center text-sm font-semibold text-foreground w-[35%]">
                       <div className="text-lg">3-Month Kickstart</div>
@@ -463,33 +462,17 @@ export default function Home() {
                           Recommended
                         </span>
                       </div>
-                      <div className="pr-5">
+                      <div className="pr-5"> {/* pr-5 to avoid overlap with the vertical text */}
                         <div className="text-lg">6-Month Full Support</div>
                         <div className="text-2xl font-bold mt-1">$2,500</div>
                         <div className="text-xs text-muted-foreground">per month</div>
                         <div className="text-xs text-muted-foreground">$15,000 total</div>
                       </div>
                     </TableHead>
-                  </TableRow>
-                </TableHeader>
+                  </TableRow></TableHeader>
                 <TableBody className="bg-background divide-y divide-border">
                   {comparisonData.map((item, index) => (
-                    <TableRow key={index} className={index % 2 === 0 ? "bg-background" : "bg-muted/30"}> {/* Adjusted alternating row color */}
-                      <TableCell className="px-6 py-4 whitespace-nowrap text-sm font-medium text-foreground">
-                        {item.feature}
-                      </TableCell>
-                      {[item.kickstart, item.fullSupport].map((value, i) => (
-                        <TableCell key={i} className="px-6 py-4 whitespace-nowrap text-sm text-center text-muted-foreground">
-                          {typeof value === 'boolean' && value ? (
-                            <Check className="h-5 w-5 text-green-500 mx-auto" />
-                          ) : typeof value === 'string' ? (
-                            value
-                          ) : (
-                            null // Render nothing if not boolean true or string
-                          )}
-                        </TableCell>
-                      ))}
-                    </TableRow>
+                    <TableRow key={index} className={index % 2 === 0 ? "bg-background" : "bg-muted/30"}><TableCell className="px-6 py-4 whitespace-nowrap text-sm font-medium text-foreground">{item.feature}</TableCell>{[item.kickstart, item.fullSupport].map((value, i) => (<TableCell key={i} className="px-6 py-4 whitespace-nowrap text-sm text-center text-muted-foreground">{typeof value === 'boolean' && value ? (<Check className="h-5 w-5 text-green-500 mx-auto" />) : typeof value === 'string' ? (value) : (null)}</TableCell>))}</TableRow>
                   ))}
                 </TableBody>
               </Table>
