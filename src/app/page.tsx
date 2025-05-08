@@ -200,7 +200,7 @@ export default function Home() {
                   <h2 className="text-3xl font-semibold text-primary mb-8 text-center">Campaign Objectives</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {[ // Array of objective objects
-                      { icon: DollarSign, text: "Generate $500,000 in peer-to-peer fundraising" },
+                      { icon: DollarSign, text: "Raise $500,000 in peer-to-peer fundraising" },
                       { icon: Users, text: "Recruit 1,000 individual fundraisers" },
                       { icon: Megaphone, text: "Increase awareness of The Phoenix's recovery support programs" },
                       { icon: HeartHandshake, text: "Create meaningful engagement with National Recovery Month (September 2025)" },
@@ -444,7 +444,9 @@ export default function Home() {
             <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-10 text-center">
               Package Comparison
             </h3>
-            <div className="overflow-x-auto rounded-lg shadow-md border border-border">
+
+            {/* Desktop Table View */}
+            <div className="overflow-x-auto rounded-lg shadow-md border border-border hidden md:block">
               <Table className="min-w-full">
                 <TableHeader className="bg-muted/50"> {/* Slightly different background for header */}
                   <TableRow>
@@ -491,6 +493,62 @@ export default function Home() {
                   ))}
                 </TableBody>
               </Table>
+            </div>
+
+            {/* Mobile Card View */}
+            <div className="space-y-6 block md:hidden">
+              {/* Mobile Header for Packages */}
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <Card className="bg-muted/50">
+                  <CardHeader className="p-4 text-center">
+                    <CardTitle className="text-md font-semibold">3-Month Kickstart</CardTitle>
+                    <p className="text-xl font-bold mt-1">$3,000</p>
+                    <p className="text-xs text-muted-foreground">per month</p>
+                    <p className="text-xs text-muted-foreground">$9,000 total</p>
+                  </CardHeader>
+                </Card>
+                <Card className="border-blue-600 border-2 relative bg-muted/50">
+                  <div className="absolute -top-px -right-px bg-blue-600 text-white text-xs font-bold uppercase px-2 py-0.5 rounded-bl-md rounded-tr-md z-10">
+                    Recommended
+                  </div>
+                  <CardHeader className="p-4 text-center">
+                    <CardTitle className="text-md font-semibold">6-Month Full Support</CardTitle>
+                    <p className="text-xl font-bold mt-1">$2,500</p>
+                    <p className="text-xs text-muted-foreground">per month</p>
+                    <p className="text-xs text-muted-foreground">$15,000 total</p>
+                  </CardHeader>
+                </Card>
+              </div>
+
+              {comparisonData.map((item, index) => (
+                <Card key={index} className="shadow-md">
+                  <CardHeader className="pb-3 pt-4 px-4">
+                    <CardTitle className="text-lg font-semibold text-foreground">{item.feature}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-4 pb-4 space-y-2">
+                    <div className="flex justify-between items-center border-t pt-2">
+                      <span className="text-sm font-medium text-muted-foreground">3-Month:</span>
+                      {typeof item.kickstart === 'boolean' && item.kickstart ? (
+                        <Check className="h-5 w-5 text-green-500" />
+                      ) : typeof item.kickstart === 'string' ? (
+                        <span className="text-sm text-foreground">{item.kickstart}</span>
+                      ) : (
+                        <span className="text-sm text-muted-foreground">-</span>
+                      )}
+                    </div>
+                    <div className="flex justify-between items-center border-t pt-2">
+                      <span className="text-sm font-medium text-muted-foreground">6-Month:</span>
+                      {typeof item.fullSupport === 'boolean' && item.fullSupport ? (
+                        <Check className="h-5 w-5 text-green-500" />
+                      ) : typeof item.fullSupport === 'string' ? (
+                        <span className="text-sm text-foreground">{item.fullSupport}</span>
+                      ) : (
+                        <span className="text-sm text-muted-foreground">-</span>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
             
           </div>
